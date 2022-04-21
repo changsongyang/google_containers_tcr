@@ -43,10 +43,10 @@ jobs:
         sudo \
           ${HOME}/sync/imgsync sync \
           --db ${HOME}/sync/bolt.db \
-          --push-to registry.aliyuncs.com \
-          --password ${{ secrets.PASS }}  \
-          --push-ns=k8sxio  \
-          --user zhangguanzhang@qq.com  \
+          --push-to docker.io \
+          --password ${{ secrets.DOCKER_PASS }}  \
+          --push-ns=ycsit  \
+          --user changsongyang  \
           --command-timeout ${TMOUT:=2h}  \
           --process-limit ${PROCESS:=2} \
           --img-timeout ${IMG_TMOUT:=10m} \

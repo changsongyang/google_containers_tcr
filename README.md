@@ -28,9 +28,16 @@
 
 ## 用法
 
+Go 模块代理
+打开你的终端并执行
+```shell
+$ go env -w GO111MODULE=on
+$ go env -w GOPROXY=https://goproxy.cn,https://mirrors.aliyun.com/goproxy/,https://goproxy.io,direct
+```
+
 编译的话记得带上tag，关闭CGO
 ```shell
-go build -tags=containers_image_openpgp main.go
+go build -o imgsync -tags=containers_image_openpgp main.go
 ```
 
 sync命令是同步的命令，sum是查看boltdb文件的信息
