@@ -48,7 +48,8 @@ func Run(opt *SyncOption) {
 	}()
 	signal.Notify(Sigs, syscall.SIGINT, syscall.SIGTERM)
 
-	if err := opt.CheckSumer.CreatBucket("k8s.gcr.io"); err != nil {
+// 	if err := opt.CheckSumer.CreatBucket("k8s.gcr.io"); err != nil {
+	if err := opt.CheckSumer.CreatBucket("registry.k8s.io"); err != nil {
 		log.Error(err)
 	}
 
