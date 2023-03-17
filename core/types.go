@@ -16,7 +16,7 @@ type Image struct {
 }
 
 func (img *Image) String() string {
-	return fmt.Sprintf("k8s.gcr.io/%s:%s", img.Name, img.Tag)
+	return fmt.Sprintf("registry.k8s.io/%s:%s", img.Name, img.Tag)
 }
 
 // used for bolt.db
