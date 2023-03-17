@@ -253,7 +253,7 @@ func report(images Images) {
 		}
 	}
 	report = fmt.Sprintf(`========================================
->> Sync Repo: k8s.gcr.io
+>> Sync Repo: registry.k8s.io
 >> Sync Total: %d
 >> Sync Failed: %d
 >> Sync Success: %d
