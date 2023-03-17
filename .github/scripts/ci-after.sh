@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-docker login -u ycstech -p ${DOCKER_PASS_YCSTECH}
+docker login -u ycstech -p ${DOCKER_PASS}
 
 cd $HOME
 mkdir -p temp
