@@ -1,4 +1,4 @@
-name: sync k8s.gcr.io
+name: sync registry.k8s.io
 
 on:
   push:
