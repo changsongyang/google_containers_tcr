@@ -15,15 +15,15 @@ import (
 )
 
 const (
-	imgList = "https://k8s.gcr.io/v2/tags/list"
+	imgList = "https://registry.k8s.io/v2/tags/list"
 	DefaultHTTPTimeout        = 15 * time.Second
-	repo = "k8s.gcr.io/"
+	repo = "registry.k8s.io/"
 )
 
 
 // baseName，不是full name
 func NSImages(op *SyncOption) ([]string, error) {
-	log.Info("get k8s.gcr.io public images...")
+	log.Info("get registry.k8s.io public images...")
 	resp, body, errs := gorequest.New().
 		Timeout(DefaultHTTPTimeout).
 		Retry(op.Retry, op.RetryInterval).
@@ -49,7 +49,7 @@ func NSImages(op *SyncOption) ([]string, error) {
 		resp, body, errs := gorequest.New().
 			Timeout(DefaultHTTPTimeout).
 			Retry(op.Retry, op.RetryInterval).
-			Get(fmt.Sprintf("https://k8s.gcr.io/v2/%s/tags/list", v)).
+			Get(fmt.Sprintf("https://registry.k8s.io/v2/%s/tags/list", v)).
 			EndBytes()
 		if errs != nil {
 			log.Errorf("%s", errs)
@@ -81,7 +81,7 @@ func ImageNames(opt *SyncOption) (Images, error) {
 		return nil, err
 	}
 
-	log.Infof("sync ns count: %d in k8s.gcr.io", len(publicImageNames))
+	log.Infof("sync ns count: %d in registry.k8s.io", len(publicImageNames))
 
 	pool, err := ants.NewPool(opt.QueryLimit, ants.WithPreAlloc(true), ants.WithPanicHandler(func(i interface{}) {
 		log.Error(i)
