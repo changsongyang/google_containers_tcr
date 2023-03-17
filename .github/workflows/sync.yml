@@ -14,7 +14,7 @@ jobs:
   sync:
     name: sync
     env:
-      DOCKER_PASS: ${{ secrets.DOCKER_PASS }} 
+      DOCKER_PASS: ${{ secrets.DOCKER_PASS_YCSTECH }} 
     runs-on: ubuntu-latest
     steps:
 
@@ -44,9 +44,9 @@ jobs:
           ${HOME}/sync/imgsync sync \
           --db ${HOME}/sync/bolt.db \
           --push-to docker.io \
-          --password ${{ secrets.DOCKER_PASS }}  \
-          --push-ns=ycsit  \
-          --user changsongyang  \
+          --password ${{ secrets.DOCKER_PASS_YCSTECH }}  \
+          --push-ns=ycstech  \
+          --user ycstech  \
           --command-timeout ${TMOUT:=2h}  \
           --process-limit ${PROCESS:=2} \
           --img-timeout ${IMG_TMOUT:=10m} \
